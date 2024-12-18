@@ -1,9 +1,8 @@
 steps:
   - name: "gcr.io/cloud-builders/docker"
-  args:
-    [
-      "build",
-      "-t",
-      "us-central1-docker.pkg.dev/get-started-project-444901/app-test/apptest-gke",
-      ".",
-   ]
+    script: |
+      docker build -t us-west2-docker.pkg.dev/get-started-project-444901/test-app/apptest-gke .
+    automapSubstitutions: true
+images:
+  - "us-west2-docker.pkg.dev/get-started-project-444901/test-app/apptest-gke"
+# [END cloudbuild_quickstart_build]
